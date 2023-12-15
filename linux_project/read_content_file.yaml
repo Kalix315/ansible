@@ -5,10 +5,9 @@
 
   tasks:
     - name: Scrivi il contenuto in un nuovo file
-      ansible.builtin.fetch:
-        dest: /tmp/
+      ansible.builtin.copy:
         src: /etc/passwd
-
+        dest: /tmp/ansible_file.txt
 
 
 
