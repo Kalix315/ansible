@@ -10,3 +10,12 @@
         dest: /tmp/ansible_file.txt
 
 
+
+    - name: Fetch file
+      fetch:
+        src: /etc/passwd
+        dest: /tmp/
+
+
+
+
