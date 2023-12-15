@@ -1,0 +1,20 @@
+---
+- name: Uninstall All KBs in Upgrade History
+  hosts: windows
+  gather_facts: no
+  become: yes
+  become_method: runas
+  become_user: SYSTEM
+
+  tasks:
+    - name: Uninstall all installed hotfixes
+      community.windows.win_hotfix:
+        hotfix_kb: KB4486129 
+        state: absent
+      when: inventory_hostname != 'LAB-A-Win10.beta80rm.it'
+      register: output
+
+    - name: output
+      debug:
+        var: output
+

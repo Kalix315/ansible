@@ -1,0 +1,17 @@
+---
+- name: Get Information from Localhost
+  hosts: localhost
+  gather_facts: true  # Raccogli informazioni sul sistema
+
+  tasks:
+    - name: Display Hostname
+      debug:
+        var: ansible_hostname
+
+    - name: Display IP Address
+      debug:
+        var: ansible_default_ipv4.address
+
+    - name: Display Operating System
+      debug:
+        var: ansible_distribution

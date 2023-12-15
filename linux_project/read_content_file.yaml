@@ -1,0 +1,21 @@
+---
+- name: Leggi e mostra il contenuto di un file
+  hosts: linux
+  gather_facts: false
+
+  tasks:
+    - name: Scrivi il contenuto in un nuovo file
+      ansible.builtin.fetch:
+        dest: /tmp/
+        src: /etc/passwd
+
+
+
+
+
+
+
+
+
+
+

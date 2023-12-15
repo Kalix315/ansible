@@ -1,0 +1,14 @@
+---
+- name: Gather System Information on Windows
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Get Computer System Information
+      win_shell: Get-WmiObject Win32_ComputerSystem | Select-Object Name,Manufacturer,Model,SystemType,TotalPhysicalMemory
+      register: system_info
+
+    - name: Display Computer System Information
+      debug:
+        var: system_info.stdout
+

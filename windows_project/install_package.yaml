@@ -1,0 +1,11 @@
+---
+- name: Install Chrome
+  hosts: windows
+  gather_facts: no
+  tasks:
+    - name: Install chrome
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ package_name }}"
+        state: present
+        ignore_checksums: yes
+        

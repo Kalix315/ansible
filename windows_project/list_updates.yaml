@@ -1,0 +1,18 @@
+---
+- name: List and Install Windows Updates
+  hosts: windows
+  gather_facts: no
+  become: no
+
+  tasks:
+    - name: Search and list available Windows updates
+      ansible.windows.win_updates:
+        state: searched
+        log_path: C:\ansible_kb.txt
+      register: available_updates
+      when: inventory_hostname != 'LAB-A-Win10.beta80rm.it'
+
+    - name: Display available updates
+      debug:
+        var: available_updates
+

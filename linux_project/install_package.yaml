@@ -1,0 +1,16 @@
+---
+- name: Install Packages
+  hosts: linux
+  gather_facts: no
+  become: yes  
+
+  tasks:
+    - name: Install package {{ package_name }}
+      package:
+        name: "{{ package_name }}"
+        state: latest
+      register: install_result
+
+    - name: Display install package
+      debug:
+        var: install_result

@@ -1,0 +1,61 @@
+---
+- name: gns3 cisco router
+  hosts: router
+  gather_facts: no
+  tasks:
+    - name: show version
+      cisco.ios.ios_command:
+        commands: show version
+      register: show_version_out
+
+    - name: debug show version
+      debug:
+        var: show_version_out.stdout_lines
+
+    - name: show run
+      cisco.ios.ios_command:
+        commands: show run
+      register: show_run_out
+
+    - name: debug show run
+      debug:
+        var: show_run_out.stdout_lines
+
+    - name: run show ip interface brief + ip route
+      cisco.ios.ios_command:
+        commands:
+          - show ip interface brief
+          - show ip route
+      register: output
+
+    - name: print output
+      debug:
+        var: output.stdout_lines
+
+    - name: Check the startup-config against the running-config
+      cisco.ios.ios_config:
+        diff_against: startup
+        diff_ignore_lines:
+          - ntp clock .*
+    
+    - name: save show run locally
+      cisco.ios.ios_command:
+        commands: show run | append nvram:config-ansible.txt
+
+
+    - name: get timestamp
+      command: date +%Y%m%d-%H-%M-%S
+      register: timestamp
+      
+    - name: backup ios config
+     ios_config:
+       backup: yes
+       backup_options:
+         filename: "running-config-{{ timestamp.stdout }}"
+         dir_path: "/data/{{ inventory_hostname }}"
+
+
+
+
+
+

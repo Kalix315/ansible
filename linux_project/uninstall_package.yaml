@@ -1,0 +1,16 @@
+---
+- name: Update Packages
+  hosts: linux
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Removing package {{ package_name }} 
+      package:
+        name: "{{ package_name }}"
+        state: absent
+      register: removal_result
+
+    - name: Display removal details
+      debug:
+        var: removal_result

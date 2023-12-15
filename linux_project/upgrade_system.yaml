@@ -1,0 +1,23 @@
+---
+- name: Update and Upgrade Red Hat System with dnf
+  hosts: linux
+  gather_facts: no
+  become: yes  
+  
+  tasks:
+    - name: Update package information
+      dnf:
+        name: '*'
+        state: latest
+
+
+
+
+
+
+
+
+
+
+
+

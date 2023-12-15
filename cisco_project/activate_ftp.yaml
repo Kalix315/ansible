@@ -1,0 +1,20 @@
+---
+- name: Esempio di Playbook per Cisco con Credenziali FTP
+  hosts: router
+  gather_facts: no
+  vars:
+    ftp_credentials: 
+      username: ftpuser
+      password: Password.001
+    ftp_home_directory: flash:/ftp
+
+  tasks:
+    - name: Configure FTP Server
+      ios_config:
+        lines:
+          - ip ftp username {{ ftp_credentials.username }}
+          - ip ftp password {{ ftp_credentials.password }}
+          - ip ftp source-interface fa0/0
+          - ip ftp home {{ ftp_home_directory }}
+          - ip ftp server
+

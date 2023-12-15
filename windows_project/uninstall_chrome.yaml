@@ -1,0 +1,16 @@
+- name: Uninstall Google Chrome
+  hosts: windows
+  gather_facts: false
+  tasks:
+
+    - name: Uninstall Chrome
+      win_package:
+        product_id: "Google Chrome"
+        state: absent
+        arguments: --force-uninstall
+      register: result
+
+    - name: Display result
+      debug:
+        var: result
+

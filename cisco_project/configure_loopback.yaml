@@ -1,0 +1,13 @@
+---
+- name: Configure Loopback Interface
+  hosts: router
+  gather_facts: no
+  
+  tasks:
+    - name: Configura interfaccia loopback
+      ios_command:
+        commands:
+          - "conf t"
+          - "interface loopback{{ loopback_interface }}"
+          - "ip address {{ loopback_ip_address }} {{ loopback_subnet_mask }}"
+          - "no shutdown"

@@ -1,0 +1,28 @@
+---
+- name: Install Chrome
+  hosts: windows
+  gather_facts: no
+  tasks:
+    
+    - name: Download Google Chrome installer
+      win_get_url:
+        url: https://dl.google.com/chrome/install/375.126/chrome_installer.exe
+        dest: C:\chrome_installer.exe
+
+    - name: Install Google Chrome
+      ansible.windows.win_package:
+        path: C:\chrome_installer.exe
+        arguments: /silent /install
+        creates_path: true
+      register: result
+      ignore_errors: true
+    
+    - name: Delete installation file
+      win_shell: Remove-Item -Path C:\chrome_installer.exe
+
+
+    - name: View result
+      debug:
+        var: result
+
+

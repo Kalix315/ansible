@@ -1,0 +1,20 @@
+---
+- name: Verifica se Google Chrome è installato
+  hosts: windows
+  gather_facts: false
+
+  tasks:
+    - name: Verifica se Google Chrome è installato
+      win_shell: |
+        $chromeQuery = Get-WmiObject -Query "SELECT * FROM Win32_Product WHERE Name='Google Chrome'"
+        if ($chromeQuery) {
+          Write-Output "Google Chrome è installato"
+        } else {
+          Write-Output "Google Chrome non è installato"
+        }
+      register: result
+
+    - name: Mostra risultato
+      debug:
+        var: result.stdout_lines
+

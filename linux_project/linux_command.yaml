@@ -1,0 +1,14 @@
+---
+- name: Esegui comando 
+  hosts: linux
+  gather_facts: no
+
+  tasks:
+    - name: Esegui {{ command }}
+      command: "{{ command }}"
+      register: command_output
+
+    - name: Visualizza l'output di uname
+      debug:
+        var: command_output.stdout_lines
+

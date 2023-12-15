@@ -1,0 +1,50 @@
+---
+- name: Configure MySQL on CentOS
+  gather_facts: no
+  hosts: linux
+  become: yes
+
+  tasks:
+    - name: Start and enable MySQL service
+      service:
+        name: mysqld
+        state: started
+        enabled: yes
+    
+
+    - name: Secure MySQL installation
+      expect:
+        command: mysql_secure_installation
+        responses:
+          'Enter current password for root (enter for none):': ''
+          'Set root password?': 'y'
+          'New password:': "{{ mysql_password }}"
+          'Re-enter new password:': "{{ mysql_password }}"
+          'Remove anonymous users?': 'y'
+          'Disallow root login remotely?': 'y'
+          'Remove test database and access to it?': 'y'
+          'Reload privilege tables now?': 'y'
+
+    - name: Create MySQL database
+      mysql_db:
+        name: "{{ database_name }}"
+        state: present
+
+    - name: Create MySQL user
+      mysql_user:
+        name: "{{ database_user }}"
+        password: "{{ database_password }}"
+        priv: "{{ database_name }}.*:ALL"
+        host: localhost
+        state: present
+
+
+
+
+
+
+
+
+
+
+

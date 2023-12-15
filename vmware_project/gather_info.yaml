@@ -1,0 +1,31 @@
+---
+- name: Gather info about vCenter
+  hosts: vcenter
+  gather_facts: no
+  tasks:
+    - name: "Gather info about vCenter settings"
+      community.vmware.vmware_vcenter_settings_info:
+      register: vcenter_settings_info
+
+
+    - name: output
+      debug:
+        var: vcenter_settings_info.stdout_line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+---
+- name: Configure ip route
+  hosts: router
+  gather_facts: no
+
+  tasks:
+    - name: Configure ip route
+      ios_command:
+        - "conf t"
+        - "ip route {{ ip_address }} {{ subnet_mask }} {{ next_hop }} {{ metric }}
