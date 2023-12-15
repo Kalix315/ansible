@@ -8,7 +8,6 @@
       ansible.builtin.copy:
         src: /etc/passwd
         dest: /tmp/ansible_file.txt
-      delegate_to: localhost
 
 
 
