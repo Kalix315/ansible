@@ -7,14 +7,6 @@
     - name: Scrivi il contenuto in un nuovo file
       ansible.builtin.copy:
         src: /etc/passwd
-        dest: /tmp/ansible_file.txt
-
-
-
-
-
-
-
-
+        dest: /tmp/awx/ansible_file.txt
 
 
