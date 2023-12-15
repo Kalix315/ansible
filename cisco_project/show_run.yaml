@@ -48,11 +48,11 @@
       register: timestamp
       
     - name: backup ios config
-     ios_config:
+      ios_config:
        backup: yes
        backup_options:
          filename: "running-config-{{ timestamp.stdout }}"
-         dir_path: "/data/{{ inventory_hostname }}"
+         dir_path: "/tmp/{{ inventory_hostname }}"
 
 
 
