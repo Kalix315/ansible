@@ -10,4 +10,5 @@
             this is my login banner
             that contains a multiline
             string
+            Beta80
       state: present
