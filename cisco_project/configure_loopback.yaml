@@ -11,3 +11,13 @@
           - "interface loopback{{ loopback_interface }}"
           - "ip address {{ loopback_ip_address }} {{ loopback_subnet_mask }}"
           - "no shutdown"
+
+
+    - name: Configure interface settings
+      cisco.ios.ios_config:
+        lines:
+          - description test interface
+          - ip address 10.10.10.100 255.255.255.0
+        parents:
+          - interface Loopback888
+          - interface Loopback777
