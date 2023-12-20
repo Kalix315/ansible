@@ -52,6 +52,7 @@
       register: ls_result
       ignore_errors: yes
       delegate_to: localhost
+      run_once: true
 
     - name: Create new file in /tmp/ named ip_list_reachable
       ansible.builtin.command:
@@ -67,6 +68,7 @@
         mode: 0644
         owner: awx
         group: awx
+        insertafter: EOF
       delegate_to: localhost
 
 
