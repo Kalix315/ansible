@@ -46,12 +46,19 @@
         msg: "IP {{ file_json.ansible_facts.router.ip }} is {{ 'reachable' if ip_reachable else 'unreachable' }}"
       register: ip_list_out
 
+    - name: Check if file is present
+      ansible.builtin.command:
+        cmd: ls /tmp/ip_list_reachable
+      register: ls_result
+
+
 
     - name: Create new file in /tmp/ named ip_list_reachable
       ansible.builtin.command:
         cmd: touch /tmp/ip_list_reachable
       delegate_to: localhost
       run_once: true
+      when: ls_result.rc != 0
 
     - name: Write ip reachable on file
       ansible.builtin.lineinfile:
