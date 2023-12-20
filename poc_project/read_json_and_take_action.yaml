@@ -23,6 +23,7 @@
       debug:
         var: file_json.ansible_facts.router.ip 
       register: ip 
+      when: file_json.ansible_facts.router.ip is defined
 
     - name: Execute PING on IP
       ansible.builtin.shell:
