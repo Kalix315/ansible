@@ -9,14 +9,16 @@
         dest: /tmp/
         flat: yes
 
+- name: Swtich inventory to take action from localhost
+  hosts: localhost
+  gather_facts: no
+  tasks:
     - name: Load Variables
       ansible.builtin.include_vars:
         file: /tmp/awx/file_json.json
-      delegate_to: localhost
 
     - name: Debug Directory Content
       ansible.builtin.shell: ls -la /tmp/awx/
-      delegate_to: localhost
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
