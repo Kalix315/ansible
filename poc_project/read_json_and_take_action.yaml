@@ -11,7 +11,7 @@
 
     - name: Load Variables
       ansible.builtin.include_vars:
-        file: /tmp/awx/{{ inventory_hostname }}/file_json.json
+        file: /tmp/awx/file_json.json
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
