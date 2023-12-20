@@ -22,7 +22,7 @@
       debug:
         var: file_json
 
-
-    - name: Ping sulla destinazione IP dal file JSON
-      ansible.builtin.shell: ping "{{ file_json.ansible_facts.router.ip }}"
-      when: file_json.ansible_facts.router.ip is defined
+    - name: Output var ip
+      debug: msg="{{ file_json.json | json_query(jmesquery)}}"
+      vars:
+        jmesquery: "[*].ip"
