@@ -26,4 +26,4 @@
 
     - name: Execute PING on IP
       ansible.builtin.shell:
-        cmd: 'ping -c 4 "{{ ip }}"'
+        cmd: 'ping -c 4 "{{ file_json.ansible_facts.router.ip }}"'
