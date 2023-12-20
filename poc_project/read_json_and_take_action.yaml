@@ -45,7 +45,14 @@
       debug:
         msg: "IP {{ file_json.ansible_facts.router.ip }} is {{ 'reachable' if ip_reachable else 'unreachable' }}"
       register: ip_list_out
- 
+
+
+    - name: delete file
+      ignore_errors: yes
+      file:
+        state: absent
+        path: /tmp/ip_list_reachable
+
     - name: Create new file in /tmp/ named ip_list_reachable
       ansible.builtin.command:
         cmd: touch /tmp/ip_list_reachable
