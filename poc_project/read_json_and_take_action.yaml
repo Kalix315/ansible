@@ -16,7 +16,7 @@
 
     - name: Debug Directory Content
       ansible.builtin.shell: ls -la /tmp/awx/
-        delegate_to: localhost
+      delegate_to: localhost
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
