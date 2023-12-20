@@ -4,19 +4,19 @@
   gather_facts: no
   become: yes
   tasks:
-    - name: Read JSON file
+    - name: Read JSON file from remote host
       ansible.builtin.fetch:
         src: /tmp/file_json.json
         dest: /tmp/{{ inventory_hostname }}-file_json.json
         flat: yes
 
-    - name: Load Variables
+    - name: Load Variables into register
       ansible.builtin.include_vars:
         file: /tmp/{{ inventory_hostname }}-file_json.json
       register: file_json
       delegate_to: localhost
 
-    - name: Mostra tutte le informazioni dal file JSON
+    - name: Output file JSON
       debug:
         var: file_json
 
@@ -26,12 +26,12 @@
       register: ip 
       when: file_json.ansible_facts.router.ip is defined
 
-    - name: Execute PING on IP
+    - name: Execute PING on IP extracted
       ansible.builtin.shell:
         cmd: 'ping -c 4 "{{ file_json.ansible_facts.router.ip }}"'
       register: ping_out
 
-    - name: Output ping
+    - name: Output ping if successful
       debug:
         var: ping_out.stdout_lines
       when: ping_out.rc == 0
@@ -41,12 +41,12 @@
       set_fact:
         ip_reachable: "{{ ping_out.rc == 0 }}"
 
-    - name: Output result
+    - name: Output result ip list
       debug:
         msg: "IP {{ file_json.ansible_facts.router.ip }} is {{ 'reachable' if ip_reachable else 'unreachable' }}"
       register: ip_list_out
    
-    - name: Crea il file vuoto con touch
+    - name: Create new file in /tmp/ named ip_list_reachable
       ansible.builtin.command:
         cmd: touch /tmp/ip_list_reachable
       delegate_to: localhost
