@@ -27,5 +27,5 @@
       register: ip
 
     - name: Execute PING on IP
-      ansible.builint.shell:
+      ansible.builtin.shell:
         cmd: 'Ping -c 4 "{{ ip }}"'
