@@ -31,4 +31,4 @@
 
     - name: Output ping
       debug:
-        var: ping:out.stdout_lines
+        var: ping_out.stdout_lines
