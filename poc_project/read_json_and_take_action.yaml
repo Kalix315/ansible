@@ -24,6 +24,6 @@
 
 
     - name: Ping on IP readed from file
-      ansible.builint.ping:
+      ansible.builtin.ping:
       when: file_json.router.ip is defined
 
