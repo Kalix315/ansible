@@ -47,17 +47,6 @@
       register: ip_list_out
 
 
-    - name: delete file
-      ignore_errors: yes
-      file:
-        state: absent
-        path: /tmp/awx/ip_list_reachable
-        mode: 0644
-        owner: awx
-        group: awx
-      delegate_to: localhost
-      run_once: true
-
     - name: Create new file in /tmp/ named ip_list_reachable
       ansible.builtin.command:
         cmd: touch /tmp/ip_list_reachable
@@ -68,6 +57,9 @@
       ansible.builtin.lineinfile:
         line: "{{ ip_list_out.msg }}"
         path: /tmp/ip_list_reachable
+        mode: 0644
+        owner: awx
+        group: awx
       delegate_to: localhost
 
 
