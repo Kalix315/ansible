@@ -18,15 +18,12 @@
     - name: Mostra tutte le informazioni dal file JSON
       debug:
         var: file_json
-      delegate_to: localhost
 
     - name: Extract IP from JSON
       debug:
         var: file_json.ansible_facts.router.ip 
       register: ip 
-      delegate_to: localhost
 
     - name: Execute PING on IP
       ansible.builtin.shell:
         cmd: 'ping -c 4 "{{ ip }}"'
-      delegate_to: localhost
