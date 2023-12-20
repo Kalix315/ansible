@@ -2,6 +2,7 @@
 - name: Read JSON file and take action
   hosts: linux
   gather_facts: no
+  become: yes
   tasks:
     - name: Read JSON file
       ansible.builtin.fetch:
