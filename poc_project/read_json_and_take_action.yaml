@@ -43,3 +43,10 @@
     - name: Output result
       debug:
         msg: "IP {{ file_json.ansible_facts.router.ip }} is {{ 'reachable' if ip_reachable else 'unreachable' }}"
+      register: ip_reachable_list
+
+
+    - name: Write ip reachable on file
+      ansible.builtin.copy:
+        content: "{{ ip_reachable_list }}"
+        dest: /tmp/
