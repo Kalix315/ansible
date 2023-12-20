@@ -52,6 +52,8 @@
       file:
         state: absent
         path: /tmp/ip_list_reachable
+      delegate_to: localhost
+      run_once: true
 
     - name: Create new file in /tmp/ named ip_list_reachable
       ansible.builtin.command:
