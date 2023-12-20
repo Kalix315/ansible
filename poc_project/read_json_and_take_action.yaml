@@ -17,13 +17,6 @@
       ansible.builtin.include_vars:
         file: /tmp/file_json.json
 
-    - name: Debug Directory Content
-      ansible.builtin.shell: ls -la /tmp/awx/
-      register: ls_debug
-
-    - name: Output debug
-      debug:
-        var: ls_debug
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
