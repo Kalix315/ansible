@@ -24,6 +24,5 @@
 
 
     - name: Ping sulla destinazione IP dal file JSON
-      ansible.builtin.ping:
-        host: "{{ file_json.ansible_facts.router.ip }}"
+      ansible.builtin.shell: ping "{{ file_json.ansible_facts.router.ip }}"
       when: file_json.ansible_facts.router.ip is defined
