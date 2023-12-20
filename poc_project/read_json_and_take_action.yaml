@@ -64,9 +64,7 @@
         insertafter: EOF
         backup: yes
       delegate_to: localhost
-
-
-
+      when: ip_list_out is not defined
 
     - name: Write ip reachable on file
       ansible.builtin.blockinfile:
