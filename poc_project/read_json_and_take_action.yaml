@@ -25,4 +25,4 @@
     - name: Output var ip
       debug: msg="{{ file_json.json | json_query(jmesquery)}}"
       vars:
-        jmesquery: "[*].ip"
+        jmesquery: jmesquery: "[*].{Name: name, Email: email, Phone: phone, CompanyName: company.name, WebSite: website, City: address.city}" 
