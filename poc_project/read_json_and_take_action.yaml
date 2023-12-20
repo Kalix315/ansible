@@ -22,14 +22,21 @@
       debug:
         var: file_json
     
-    - name: Download JSON content play
+
+    - name: Extract IP from JSON
+      debug:
+        msg: "{{ file_json.json | json_query(jmesquery) }}"
+      vars:
+        jmesquery: "[*].{Router: router.hostname, IP: router.ip, Subnet: router.subnet_mask, Gateway: router.gateway}" 
+
+    - name: TEST Download JSON content play
       uri:
         url: https://jsonplaceholder.typicode.com/users
         return_content: yes
       register: jsoncontent
 
 
-    - name: Business Card
+    - name: TEST Business Card
       debug: 
         msg: "{{ jsoncontent.json | json_query(jmesquery) }}"
       vars:
