@@ -47,6 +47,6 @@
 
     - name: Write ip reachable on file
       ansible.builtin.copy:
-        content: "{{ ip_list_out.stdout_lines }}"
+        content: "{{ ip_list_out }}"
         dest: /tmp/ip_list_reachable
       delegate_to: localhost
