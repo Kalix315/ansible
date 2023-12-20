@@ -32,3 +32,4 @@
     - name: Output ping
       debug:
         var: ping_out.stdout_lines
+      when: ping_out.rc == 0
