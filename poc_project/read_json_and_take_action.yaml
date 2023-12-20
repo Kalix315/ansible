@@ -51,7 +51,7 @@
       ignore_errors: yes
       file:
         state: absent
-        path: /tmp/ip_list_reachable
+        path: /tmp/awx/ip_list_reachable
         mode: 0644
         owner: awx
         group: awx
