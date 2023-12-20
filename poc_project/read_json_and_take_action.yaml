@@ -27,3 +27,8 @@
     - name: Execute PING on IP
       ansible.builtin.shell:
         cmd: 'ping -c 4 "{{ file_json.ansible_facts.router.ip }}"'
+      register: ping_out
+
+    - name: Output ping
+      debug:
+        var: ping:out.stdout_lines
