@@ -62,6 +62,7 @@
         state: present
         create: true
         insertafter: EOF
+        backup: yes
       delegate_to: localhost
 
 
