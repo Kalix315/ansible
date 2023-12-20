@@ -12,6 +12,7 @@
     - name: Load Variables
       ansible.builtin.include_vars:
         file: /tmp/awx/file_json.json
+      delegate_to: localhost
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
