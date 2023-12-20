@@ -4,17 +4,17 @@
   gather_facts: false
 
   tasks:
-    - name: Scrivi il contenuto in un nuovo file
+    - name: Scrivi il contenuto in un nuovo file localmente 
       ansible.builtin.copy:
         src: /etc/passwd
         dest: /tmp/awx/ansible_file.txt
 
 
 
-    - name: Fetch file
+    - name: Fetch file from remote host to localhost
       fetch:
         src: /etc/passwd
-        dest: /tmp/awx/testamento
+        dest: /tmp/
 
 
 

@@ -1,0 +1,12 @@
+---
+- name: Read JSON file and take action
+  hosts: linux
+  gather_facts: no
+  tasks:
+    - name: Read JSON file
+      ansible.builtin.include_vars:
+        file: external_data.json
+
+    - name: Mostra tutte le informazioni dal file JSON
+      debug:
+        var: external_data
