@@ -21,7 +21,11 @@
     - name: Mostra tutte le informazioni dal file JSON
       debug:
         var: file_json
-    
+   
+
+    - name: Extract IP
+      debug:
+        var: file_json.ansible_facts.router.ip 
 
     - name: Extract IP from JSON
       debug:
