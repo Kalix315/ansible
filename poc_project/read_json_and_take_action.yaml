@@ -4,8 +4,9 @@
   gather_facts: no
   tasks:
     - name: Read JSON file
-      ansible.builtin.include_vars:
-        file: external_data.json
+      ansible.builtin.fetch:
+        src: /tmp/external_data.json
+        dest: /tmp/
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
