@@ -34,3 +34,12 @@
       debug:
         var: ping_out.stdout_lines
       when: ping_out.rc == 0
+
+
+    - name: Check if ping was successful
+      set_fact:
+        ip_reachable: "{{ ping_out.rc == 0 }}"
+
+    - name: Output result
+      debug:
+        msg: "IP {{ file_json.ansible_facts.router.ip }} is {{ 'reachable' if ip_reachable else 'unreachable' }}"
