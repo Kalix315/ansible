@@ -11,7 +11,7 @@
 
     - name: Load Variables
       ansible.builtin.include_vars:
-        file: /tmp/{{ linux_inventory_hostname }}-file_json.json
+        file: /tmp/{{ inventory_hostname }}-file_json.json
       register: file_json
       delegate_to: localhost
 
