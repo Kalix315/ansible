@@ -61,6 +61,7 @@
         line: "{{ ip_list_out.msg }}" 
         state: present
         create: true
+        insertafter: EOF
       delegate_to: localhost
 
 
