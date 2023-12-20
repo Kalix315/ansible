@@ -6,7 +6,7 @@
     - name: Read JSON file
       ansible.builtin.fetch:
         src: /tmp/file_json.json
-        dest: /tmp/
+        dest: /tmp/{{ inventory_hostname}}file_json.json
         flat: yes
 
 - name: Swtich inventory to take action from localhost
