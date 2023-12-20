@@ -23,7 +23,7 @@
         var: file_json
 
 
-    - name: Ping on IP readed from file
+    - name: Ping sulla destinazione IP dal file JSON
       ansible.builtin.ping:
-      when: file_json.router.ip is defined
-
+        host: "{{ file_json.ansible_facts.router.ip }}"
+      when: file_json.ansible_facts.router.ip is defined
