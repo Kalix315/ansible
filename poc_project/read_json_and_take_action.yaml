@@ -46,7 +46,7 @@
       register: ip_list_out
 
     - name: Write ip reachable on file
-      ansible.builtin.copy:
-        content: "{{ ip_list_out }}"
-        dest: /tmp/ip_list_reachable
+      ansible.builtin.lineinfile:
+        path: /tmp/ip_list_reachable
+        line: "{{ ip_list_out | to_nice_json }}"
       delegate_to: localhost
