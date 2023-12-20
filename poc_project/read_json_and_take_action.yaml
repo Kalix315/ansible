@@ -29,3 +29,4 @@
     - name: Execute PING on IP
       ansible.builtin.shell:
         cmd: 'ping -c 4 "{{ ip }}"'
+      delegate_to: localhost
