@@ -63,9 +63,19 @@
         create: true
         insertafter: EOF
         backup: yes
-      become: true
       delegate_to: localhost
 
+
+
+
+    - name: Write ip reachable on file
+      ansible.builtin.blockinfile:
+        path: /tmp/ip_list_reachable
+        block: "{{ ip_list_out.msg }}"
+        create: yes
+        owner: awx
+        group: awx
+      when: ip_list_out is defined 
 
 
 
