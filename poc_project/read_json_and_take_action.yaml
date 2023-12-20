@@ -16,6 +16,7 @@
     - name: Load Variables
       ansible.builtin.include_vars:
         file: /tmp/file_json.json
+      register: file_json
 
 
     - name: Mostra tutte le informazioni dal file JSON
