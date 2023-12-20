@@ -28,4 +28,4 @@
 
     - name: Execute PING on IP
       ansible.builtin.shell:
-        cmd: 'Ping -c 4 "{{ ip }}"'
+        cmd: 'ping -c 4 "{{ ip }}"'
