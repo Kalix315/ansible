@@ -47,5 +47,5 @@
     - name: Write ip reachable on file
       ansible.builtin.copy:
         content: "IP {{ file_json.ansible_facts.router.ip }} is {{ 'reachable' if ip_reachable else 'unreachable' }}"
-        dest: /tmp/
+        dest: /tmp/awx
       delegate_to: localhost
