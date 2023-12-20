@@ -23,8 +23,8 @@
     - name: Extract IP from JSON
       debug:
         var: file_json.ansible_facts.router.ip 
+      register: ip 
       delegate_to: localhost
-      register: ip
 
     - name: Execute PING on IP
       ansible.builtin.shell:
