@@ -48,7 +48,7 @@
     - name: Create a directory if it does not exist
       ansible.builtin.file:
         path: /tmp/ip_list_reachable
-        state: file
+        state: touch
       
     - name: Write ip reachable on file
       ansible.builtin.lineinfile:
