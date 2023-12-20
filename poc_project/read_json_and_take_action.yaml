@@ -30,6 +30,7 @@
 
 
     - name: Business Card
-      debug: msg="{{ jsoncontent.json | json_query(jmesquery) }}"
-        vars:
-          jmesquery: "[*].{Name: name, Email: email, Phone: phone, CompanyName: company.name, WebSite: website, City: address.city}"
+      debug: 
+        msg="{{ jsoncontent.json | json_query(jmesquery) }}"
+      vars:
+        jmesquery: "[*].{Name: name, Email: email, Phone: phone, CompanyName: company.name, WebSite: website, City: address.city}"
