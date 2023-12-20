@@ -18,7 +18,12 @@
         file: /tmp/file_json.json
       register: file_json
 
-
     - name: Mostra tutte le informazioni dal file JSON
       debug:
         var: file_json
+
+
+    - name: Ping on IP readed from file
+      ansible.builint.ping:
+      when: file_json.router.ip is defined
+
