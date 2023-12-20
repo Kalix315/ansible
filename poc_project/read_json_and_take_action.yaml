@@ -24,3 +24,8 @@
       debug:
         var: file_json.ansible_facts.router.ip 
       delegate_to: localhost
+      register: ip
+
+    - name: Execute PING on IP
+      ansible.builint.shell:
+        cmd: "Ping -c 4 {{ ip }}
