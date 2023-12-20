@@ -6,23 +6,21 @@
     - name: Read JSON file
       ansible.builtin.fetch:
         src: /tmp/file_json.json
-        dest: /tmp/{{ inventory_hostname}}file_json.json
+        dest: /tmp/{{ inventory_hostname }}-file_json.json
         flat: yes
 
-- name: Swtich inventory to take action from localhost
-  hosts: localhost
-  gather_facts: no
-  tasks:
     - name: Load Variables
       ansible.builtin.include_vars:
-        file: /tmp/file_json.json
+        file: /tmp/{{ linux_inventory_hostname }}-file_json.json
       register: file_json
+      delegate_to: localhost
 
     - name: Mostra tutte le informazioni dal file JSON
       debug:
         var: file_json
-   
+      delegate_to: localhost
+
     - name: Extract IP from JSON
       debug:
         var: file_json.ansible_facts.router.ip 
-    
+      delegate_to: localhost
