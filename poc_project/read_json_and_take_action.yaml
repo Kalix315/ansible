@@ -54,16 +54,10 @@
       delegate_to: localhost
       run_once: true
 
-    - name: Add result to file
-      ansible.builtin.blockinfile:
-        path: /tmp/ip_list_reachable
-        block: |
-          {{ ip_list_out.msg }}
-        create: yes
-        backup: yes
-      become: true
+    - name: Append to file
+      ansible.builtin.command:
+        cmd: echo "{{ ip_list_out.msg }}" >> /tmp/ip_list_reachable
       delegate_to: localhost
-
 
 
 
