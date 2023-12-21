@@ -9,7 +9,7 @@ This repository contains a collection of Ansible playbooks for managing various 
   - [Usage](#usage)
   - [Ansible Automation Platform Project Setup](#ansible-automation-platform-project-setup)
     - [Prerequisites](#prerequisites)
-    - [GitHub Personal Access Token](#github-personal-access-token)
+      - [Ansible Automation Platform installed](#ansible-automation-platform-installed).
     - [Steps](#steps)
       - [1. Clone the Repository](#1-clone-the-repository)
       - [2. Create a Project](#2-create-a-project)
@@ -63,15 +63,6 @@ This section provides instructions on setting up an Ansible project on Ansible A
 #### Prerequisites
 
 - Ansible Automation Platform installed. Follow the official installation guide: [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
-
-#### GitHub Personal Access Token
-
-1. Visit [GitHub](https://github.com/) and log in to your account.
-2. Navigate to your profile settings by clicking on your profile picture in the top right and selecting "Settings".
-3. In the left sidebar, click on "Developer settings", then click on "Personal access tokens".
-4. Click the "Generate token" button.
-5. Provide a name for your token, select the scopes (permissions) needed, and click "Generate token".
-6. **IMPORTANT:** Copy the generated token immediately. This is your only chance to save it securely.
 
 ### Steps
 
