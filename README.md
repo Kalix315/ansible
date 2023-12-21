@@ -9,7 +9,7 @@ This repository contains a collection of Ansible playbooks for managing various 
   - [Usage](#usage)
   - [Ansible Automation Platform Project Setup](#ansible-automation-platform-project-setup)
     - [Prerequisites](#prerequisites)
-      - [1. Ansible Automation Platform installed](#ansible-automation-platform-installed)
+      - [- Ansible Automation Platform installed.](#ansible-automation-platform-installed)
     - [Steps](#steps)
       - [1. Clone the Repository](#1-clone-the-repository)
       - [2. Create a Project](#2-create-a-project)
