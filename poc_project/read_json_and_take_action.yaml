@@ -51,6 +51,7 @@
         current_timestamp: "{{ ansible_date_time.strftime('%d-%m-%y-%H:%M:%S') }}"
 
     - name: Write ip reachable on file
+      gather_facts: true
       ansible.builtin.lineinfile:
         path: /tmp/{{ current_timestamp }}_ip_list_reachable
         line: "{{ ip_list_out.msg }}"
