@@ -13,6 +13,7 @@ This repository contains a collection of Ansible playbooks for managing various 
     - [Steps](#steps)
       - [1. Clone the Repository](#1-clone-the-repository)
       - [2. Create a Project](#2-create-a-project)
+      - [3. Create a Job Template](#3-create-a-job-template)
 
 ## Ansible Automation Project
 
@@ -91,5 +92,27 @@ git clone https://github.com/Kalix315/ansible.git
 5. Configure other settings such as inventory and credentials as needed for your project.
 6. Save the project configuration.
 7. Your Ansible Automation Platform is now connected to your GitHub repository, and you've created a project ready for automation.
+
+Feel free to customize these steps based on your specific requirements and environment.
+
+#### 3. Create a Job Template
+
+Now that you have set up your Ansible Automation Platform project and connected it to your GitHub repository, follow these steps to create a job template:
+
+1. In the Ansible Automation Platform, navigate to the Job Templates section.
+
+2. Click on "Create Job Template" and provide a name and description for your job template.
+
+3. Choose the project you created earlier from the "Project" dropdown menu.
+
+4. Select the playbook you want to use from the "Playbook" dropdown menu. For example, you can choose a playbook from the `cisco_project`, `linux_project`, `poc_project`, `vmware_project`, or `windows_project` directories.
+
+5. Configure other settings such as inventory, credentials, and job options as needed for your specific playbook.
+
+6. Save the job template.
+
+7. Your job template is now ready for execution. You can run it manually, schedule it, or integrate it into other automation workflows.
+
+Repeat these steps for each playbook you want to create a job template for.
 
 Feel free to customize these steps based on your specific requirements and environment.
