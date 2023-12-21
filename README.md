@@ -62,7 +62,7 @@ This section provides instructions on setting up an Ansible project on Ansible A
 
 #### Prerequisites
 
-- [Ansible Automation Platform installed](#ansible-automation-platform-installed). Follow the official installation guide: [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
+- [Ansible Automation Platform installed](ansible-automation-platform-installed). Follow the official installation guide: [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
 ### Steps
 
