@@ -37,7 +37,6 @@
         var: ping_out.stdout_lines
       when: ping_out.rc == 0
 
-
     - name: Check if ping was successful
       set_fact:
         ip_reachable: "{{ ping_out.rc == 0 }}"
@@ -55,16 +54,14 @@
       delegate_to: localhost
       run_once: true
 
-    - name: Write ip reachable on file
-      ansible.builtin.lineinfile:
+    - name: Add result to file
+      ansible.builtin.blockinfile:
         path: /tmp/ip_list_reachable
-        line: "{{ ip_list_out.msg }}" 
-        state: present
-        create: true
-        insertafter: EOF
+        block: |
+          {{ ip_list_out.msg }}
+        create: yes
         backup: yes
-      delegate_to: localhost
-
+      become: true
 
 
 
