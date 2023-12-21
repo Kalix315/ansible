@@ -63,6 +63,7 @@
         create: true
         insertafter: EOF
         backup: yes
+        unsafe_writes: true
       delegate_to: localhost
 
 
