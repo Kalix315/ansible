@@ -47,13 +47,13 @@
       register: ip_list_out
 
     - name: Ottieni il timestamp corrente
-      ansible.builtin.set_fact:
-        current_timestamp: "{{ ansible_date_time.strftime('%d-%m-%y-%H:%M:%S') }}"
+      ansible.builtin.command:
+        cmd: date +"%d-%m-%y-%H:%M:%S"
+      register: timestamp_output
 
     - name: Write ip reachable on file
-      gather_facts: true
       ansible.builtin.lineinfile:
-        path: /tmp/{{ current_timestamp }}_ip_list_reachable
+        path: /tmp/{{ timestamp_output.stdout }}_ip_list_reachable
         line: "{{ ip_list_out.msg }}"
         state: present
         create: true
