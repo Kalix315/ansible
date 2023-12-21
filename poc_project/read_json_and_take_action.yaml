@@ -53,7 +53,7 @@
 
     - name: Write ip reachable on file
       ansible.builtin.lineinfile:
-        path: /tmp/ip/{{ timestamp_output.stdout }}_ip_list_reachable
+        path: /tmp/{{ timestamp_output.stdout }}_ip_list_reachable
         line: "{{ ip_list_out.msg }}"
         state: present
         create: true
