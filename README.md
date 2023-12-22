@@ -60,7 +60,7 @@ Include instructions or examples on how to use the playbooks in your project.
 
 This section provides instructions on setting up an Ansible project on Ansible Automation Platform using playbooks from this GitHub repository.
 
-#### Prerequisites
+### Prerequisites
 
   #### Ansible Automation Platform installed
   Follow the official installation guide: [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
